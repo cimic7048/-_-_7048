@@ -1,0 +1,273 @@
+
+
+:root {
+  --olive-dark:  #2f3a1f;   /* найтемніший оливковий: шапка, підвал */
+  --olive:       #4b5d2c;   /* основний оливковий: кнопки */
+  --olive-mid:   #6b7d3f;   /* наведення на кнопки */
+  --khaki:       #9aa66b;   /* акценти, рамки */
+  --sand:        #e8e5d0;   /* світлі блоки */
+  --bg:          #f4f2e7;   /* фон сторінки */
+  --text:        #232a17;   /* основний текст */
+  --text-light:  #f4f2e7;   /* текст на темному */
+  --radius:      14px;
+  --max-width:   1100px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Шапка ---------- */
+.site-header {
+  background: var(--olive-dark);
+  color: var(--text-light);
+  border-bottom: 4px solid var(--khaki);
+}
+
+/* три колонки: порожня | напис по центру | шеврон праворуч */
+.site-header .container {
+  display: grid;
+  grid-template-columns: 84px 1fr 84px;
+  align-items: center;
+  gap: 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.site-title {
+  grid-column: 2;
+  text-align: center;
+  margin: 0;
+  font-size: clamp(1.9rem, 5.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.site-title small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.48em;
+  font-weight: 600;
+  color: var(--khaki);
+}
+
+.site-logo {
+  grid-column: 3;
+  justify-self: end;
+  width: 84px;
+  height: auto;
+}
+
+.site-header a { color: inherit; text-decoration: none; }
+
+/* ---------- Блок з лозунгом ---------- */
+.slogan {
+  background: var(--olive);
+  color: var(--text-light);
+  text-align: center;
+  padding: 36px 16px;
+}
+
+.slogan p {
+  margin: 0;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- Інструкція ---------- */
+.instruction {
+  background: var(--sand);
+  border-left: 6px solid var(--olive);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin: 36px auto 28px;
+  font-size: 1.05rem;
+}
+
+.instruction h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: var(--olive-dark);
+}
+
+.instruction p { margin: 0 0 12px; }
+
+.instruction h3 {
+  margin: 22px 0 8px;
+  font-size: 1.08rem;
+  color: var(--olive-dark);
+}
+
+/* нумеровані кроки */
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  padding: 6px 0 6px 46px;
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--olive);
+  color: var(--text-light);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* що підготувати для кожної категорії */
+.prepare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.prepare div {
+  background: var(--bg);
+  border: 1px solid var(--khaki);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+.prepare strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--olive);
+}
+
+.note {
+  margin-top: 18px !important;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;           
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.cat-btn {
+  flex: 1 1 170px;
+  max-width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 120px;
+  padding: 18px 12px;
+  background: var(--olive);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 2px solid var(--olive-dark);
+  box-shadow: 0 4px 0 var(--olive-dark);
+  transition: transform .15s, background .15s, box-shadow .15s;
+}
+
+.cat-btn svg { width: 34px; height: 34px; }
+
+.cat-btn:hover,
+.cat-btn:focus-visible {
+  background: var(--olive-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 var(--olive-dark);
+  outline: none;
+}
+
+.cat-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--olive-dark);
+}
+
+/* ---------- Велика кнопка ---------- */
+.big-btn-wrap { text-align: center; margin-bottom: 32px; }
+
+.big-btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 640px;
+  padding: 22px 28px;
+  background: var(--olive-dark);
+  color: var(--text-light);
+  font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: var(--radius);
+  border: 3px solid var(--khaki);
+  transition: background .15s, transform .15s;
+}
+
+.big-btn:hover,
+.big-btn:focus-visible {
+  background: var(--olive);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto 48px;
+  border-radius: var(--radius);
+  border: 4px solid var(--khaki);
+}
+
+
+.site-footer {
+  background: var(--olive-dark);
+  color: var(--khaki);
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 600px) {
+  .site-header .container { grid-template-columns: 48px 1fr 48px; gap: 8px; }
+  .site-logo { width: 48px; }
+  .cat-btn { flex-basis: 140px; min-height: 100px; font-size: 0.98rem; }
+  .instruction { padding: 18px; }
+}
