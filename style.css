@@ -273,5 +273,11 @@ body {
 }
 
 .choose-head { text-align: center; margin: 8px 0 22px; }
+
+
+.site-footer p { margin: 4px 0; }
+.footer-phone { font-size: 1.15rem; font-weight: 700; color: var(--text-light); }
+.footer-phone a { color: var(--text-light); text-decoration: none; border-bottom: 1px dashed var(--khaki); }
+.footer-phone a:hover { color: var(--khaki); }
 .choose-head h2 { margin: 0 0 6px; font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--olive-dark); }
 .choose-head p { margin: 0; font-size: 1rem; color: var(--olive); }
